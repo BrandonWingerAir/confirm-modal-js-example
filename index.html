@@ -5,10 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmation Modal - Demo</title>
-    <style></style>
-    <script></script>
+    <style>
+        body {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #delete {
+            font-size: large;
+            padding: 0.5em 1em;
+        }
+
+        .modal-container {
+            z-index: 9999;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        .modal-open {
+            display: flex;
+        }
+    </style>
+    <script>
+        function onDelete() {
+            let confirmModal = document.getElementById("confirm");
+
+            if (!confirmModal.classList.contains("modal-open")) {
+                confirmModal.classList.add("modal-open");
+            }
+        }
+    </script>
 </head>
 <body>
-    Confirmation Modal
+    <button id="delete" name="delete" onclick="onDelete()">Delete</button>
+    <div id="confirm" class="modal-container">
+
+    </div>
 </body>
 </html>
